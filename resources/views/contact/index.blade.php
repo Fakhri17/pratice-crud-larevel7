@@ -1,6 +1,7 @@
 @extends('contact')
 
 @section('main')
+<a href="{{ url('contacts/create') }}" class="btn btn-primary mb-3">Add New</a>
   <div class="row">
     <div class="col-md-12"> 
     <table class="table table-striped">
