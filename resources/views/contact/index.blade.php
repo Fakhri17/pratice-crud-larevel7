@@ -4,7 +4,7 @@
 <a href="{{ url('contacts/create') }}" class="btn btn-primary mb-3">Add New</a>
   <div class="row">
     <div class="col-md-12"> 
-    <table class="table table-striped">
+    <table class="table table-striped text-center">
 			<thead>
         <tr>
           <th>ID</th>
@@ -23,8 +23,17 @@
             <td>{{$contact->email}}</td>
             <td>{{$contact->phone}}</td>
             <td>{{$contact->address}}</td>
-            <td><button disabled="disabled">EDIT</button></td>
-            <td><button disabled="disabled">DELETE</button></td>
+            <td>
+              <a  class="btn btn-primary" href="{{ url("contacts/{$contact->id}/edit") }}">EDIT</a>
+            </td>
+            <td>
+              <form action="{{ url("contacts/{$contact->id}") }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">DELETE</button>
+              </form>
+              
+            </td>
           </tr>
         @endforeach
       </tbody>
